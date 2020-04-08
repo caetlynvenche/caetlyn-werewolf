@@ -1,0 +1,12 @@
+.hidden {
+  display: none;
+}
+
+.resultPlayerDiv {
+  border: black solid 1px;
+}
+
+.errorMsg {
+  color: red;
+}
+/*# sourceMappingURL=styles.css.map */
