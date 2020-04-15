@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Role from './Role'
 import InputGroups from './InputGroups'
 import  SelectCharacters from './SelectCharacters'
+import Modal from 'react-modal'
 import { v4 as uuid } from 'uuid';
 import './styles/styles.css'
 
@@ -123,6 +124,8 @@ function App() {
 
 	const [players, editPlayers] = useState([])
 	const [availableRolesState, setAvailableRolesState] = useState([])
+	const [completed, setCompleted] = useState(false)
+	const [modalState, setModalState] = useState(false)
 
 	const playerAmount = [
 		{
@@ -297,47 +300,79 @@ function App() {
 			})
 			console.log(players)
 
-			const resultDiv = document.getElementById("resultDiv")
-			resultDiv.classList.remove("hidden")
-
-			players.forEach(ind => {
-				let newOl = document.createElement("li")
-				newOl.id = ind.key
-				newOl.classList.add("resultPlayerDiv")
-
-				let name = document.createElement("h2")
-				name.textContent = ind.playerName
-
-				let role = document.createElement("h2")
-				role.textContent = ind.role.title
-
-				newOl.appendChild(name)
-				newOl.appendChild(role)
-				resultDiv.appendChild(newOl)
-			})
+			setCompleted(true)
 		}
+	}
+
+	const openModal = () => {
+		setModalState(true)
+	}
+
+	const closeModal = () => {
+		setModalState(false)
 	}
 
 
 	return (
     	<div>
-			<h2>werewolf role generator</h2>
-			<ol id="resultDiv" className="hidden">
-			</ol>
+			<h1 className="center">Caetlyn's Werewolf</h1>
+			<h3 className="center">Role Generator</h3>
 
-			<h2>{players.length}</h2>
+			<div className="rules">
+				<p>This is a simple role generator to be used to decide who is playing as what during a homebrew version of Werewolf. Many of the roles are taken from various versions of the game.</p>
+				<p>To Use: </p>
+				<ol>
+					<li>Input the names of 8 to 25 players, not including the Narrator role. The clear button deletes your list of players.</li>
+					<li>Decide which specialty characters you want available to play. (NOTE: some are required and are not listed)</li>
+					<li>Click "Assign Roles". The roles will all be assigned to a player.</li>
+				</ol>
+			</div>
 			
-			<InputGroups players={players} editPlayers={editPlayers} />
+			{
+				completed === true
+				?
+				<button onClick={openModal}>Show Player Results</button>
+				:
+				null
+			}
+
+			<Modal
+				isOpen={modalState}
+				onRequestClose={closeModal}
+				contentLabel="Example Modal"
+			>
+				<div className="results">
+					{ players.map(ind => <div className="resultPlayerDiv" id={ind.id}>
+					<h2>{ind.playerName}: {ind.role.title}</h2>
+				</div>)}
+				</div>
+				
+			</Modal>
+			
+			<InputGroups players={players} editPlayers={editPlayers} setCompleted={setCompleted} />
 
 
 			<SelectCharacters roles={roles} availableRolesState={availableRolesState} setAvailableRolesState={setAvailableRolesState} />
 
-			{/* { availableRolesState.map(ind => <p>{ind.title}</p>) } */}
+			<p className="center">Role Information at Bottom of Page</p>
+			<button className="assignRoles" onClick={assignRoles}>Assign Roles</button>
 
-			<button onClick={assignRoles}>Assign Roles</button>
+			{
+				completed === true
+				?
+				<button onClick={openModal}>Show Player Results</button>
+				:
+				null
+			}
 
-			<h2>Roles</h2>
-			{ roles.map(role => <Role key={role.key} {...role} title={role.title} description={role.description} goal={role.goal} />) }
+			<div className="rolesDescPage">
+				<h2>Roles</h2>
+				<section>
+					{ roles.map(role => <Role key={role.key} {...role} title={role.title} description={role.description} goal={role.goal} />) }
+				</section>
+				
+			</div>
+
     	</div>
 	);
 }

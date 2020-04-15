@@ -1,12 +1,196 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: lightgray;
+}
+
 .hidden {
   display: none;
 }
 
+.results {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 .resultPlayerDiv {
-  border: black solid 1px;
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid gray;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px;
+}
+
+button {
+  margin: 5px auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 15px;
+  font-size: 20px;
+  border-radius: 10px;
+  display: block;
 }
 
 .errorMsg {
   color: red;
+}
+
+.center {
+  text-align: center;
+}
+
+h1 {
+  font-size: 60px;
+  padding: 30px;
+}
+
+h3 {
+  font-size: 40px;
+}
+
+.rules {
+  padding: 50px;
+  margin: 0px 10px;
+}
+
+.rules ol {
+  padding: 30px;
+}
+
+.inputGroupsPage {
+  margin: 20px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.inputGroupsPage div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.inputGroupsPage div h2 {
+  padding: 20px;
+}
+
+.inputGroupsPage p {
+  text-align: center;
+}
+
+.inputGroupsPage form {
+  margin: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.inputGroupsPage input {
+  padding: 15px;
+  font-size: 20px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.rolesDescPage {
+  margin-top: 125px;
+}
+
+.rolesDescPage h2 {
+  text-align: center;
+  padding: 20px;
+  margin: 10px;
+}
+
+.rolesDescPage section {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+}
+
+.rolesDescPage div {
+  border: 1px dashed gray;
+  padding: 15px;
+}
+
+.rolesDescPage div h3 {
+  text-align: center;
+}
+
+.rolesDescPage div p {
+  margin: 10px 0px;
+  text-align: center;
+}
+
+.selectRolesPage {
+  text-align: center;
+  padding: 50px;
+}
+
+.selectRolesPage h2 {
+  margin: 30px;
+}
+
+.selectRolesPage div {
+  display: inline;
+  padding: 5px;
+}
+
+.selectRolesPage div input {
+  padding: 2px;
+}
+
+.selectRolesPage div label {
+  padding: 2px;
+}
+
+.assignRoles {
+  margin: 20px auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: block;
+  padding: 15px;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.roleGoal {
+  text-decoration: underline;
 }
 /*# sourceMappingURL=styles.css.map */

@@ -33,12 +33,18 @@ const InputGroup = (props) => {
 
     const handleClearPlayers = () => {
         props.editPlayers([])
+        props.setCompleted(false)
     }
 
 
     return (
-        <div>
-            <h2>Add Your Players</h2>
+        <div className="inputGroupsPage">
+            <div>
+                <h2>Add Your Players</h2>
+
+                <h2>{props.players.length}</h2>
+            </div>
+            
 
             <form onSubmit={handlePlayerSubmit}>
                 <input
@@ -47,6 +53,7 @@ const InputGroup = (props) => {
                     placeholder="Player Name"
                     onChange={handleChange}
                 />
+
                 { 
                     errorFill === true 
                     ?
@@ -59,7 +66,7 @@ const InputGroup = (props) => {
 
         { props.players.map(item => <p key={item.key}>{item.playerName}</p>)}
 
-            <button onClick={handleClearPlayers}>Clear</button>
+            <button onClick={handleClearPlayers}>Clear Player List</button>
         </div>
     )
 }

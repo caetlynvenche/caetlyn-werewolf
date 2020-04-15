@@ -1,11 +1,161 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: lightgray;
+}
+
 .hidden {
     display: none;
 }
 
+.results {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 .resultPlayerDiv {
-    border: black solid 1px;
+    width: 50%;
+    display: flex;
+    border: 1px solid gray;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px;
+}
+
+button {
+    margin: 5px auto;
+    width: fit-content;
+    padding: 15px;
+    font-size: 20px;
+    border-radius: 10px;
+    display: block;
 }
 
 .errorMsg {
     color: red;
+}
+
+.center {
+    text-align: center;
+}
+
+h1 {
+    font-size: 60px;
+    padding: 30px;
+}
+
+h3 {
+    font-size: 40px;
+}
+
+.rules {
+    padding: 50px;
+    margin: 0px 10px;
+
+    ol {
+        padding: 30px;
+    }
+}
+
+.inputGroupsPage {
+    margin: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        h2 {
+            padding: 20px;
+        }
+    }
+    p {
+        text-align: center;
+    }
+
+    form {
+        margin: auto;
+        width: fit-content;
+    }
+
+    input {
+        padding: 15px;
+        font-size: 20px;
+        border-radius: 10px;
+        margin: 10px;
+    }
+}
+
+.rolesDescPage {
+    margin-top: 125px;
+
+    h2 {
+        text-align: center;
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    section {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    div {
+        border: 1px dashed gray;
+        padding: 15px;
+
+        h3 {
+            text-align: center;
+        }
+
+        p {
+            margin: 10px 0px;
+            text-align: center;
+        }
+    }
+}
+
+.selectRolesPage {
+    text-align: center;
+    padding: 50px;
+    
+    h2 {
+            margin: 30px;
+        }
+
+    div {
+        display: inline;
+        padding: 5px;
+
+        
+
+        input {
+            padding: 2px;
+        }
+
+        label {
+            padding: 2px;
+        }
+    }
+}
+
+.assignRoles {
+    margin: 20px auto;
+    width: fit-content;
+    display: block;
+    padding: 15px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.roleGoal {
+    text-decoration: underline;
 }
